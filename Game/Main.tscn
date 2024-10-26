@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://d4bcottp260po"]
+[gd_scene load_steps=70 format=4 uid="uid://d4bcottp260po"]
 
 [ext_resource type="Texture2D" uid="uid://bu672umo1fd7d" path="res://Asset/Tilemap/Tilemap_ProjectLittleAdventurerAndie2D.png" id="1_u3glq"]
 [ext_resource type="Texture2D" uid="uid://c7u7k8o6200bu" path="res://Asset/Animations/Player/Idle.png" id="2_iu1el"]
@@ -12,8 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://evcr6x32hwcx" path="res://Asset/Background/02_ProjectLittleAdventurerAndie2D.png" id="10_uhx7w"]
 [ext_resource type="Texture2D" uid="uid://bhasmqyyt4et1" path="res://Asset/Background/01_ProjectLittleAdventurerAndie2D.png" id="11_p75aw"]
 [ext_resource type="Texture2D" uid="uid://bub4le54celrc" path="res://Asset/Background/00_ProjectLittleAdventurerAndie2D.png" id="12_4gn5b"]
+[ext_resource type="Texture2D" uid="uid://css1np56ti8rq" path="res://Asset/Background/CloseBackground/CBG01_ProjectLittleAdventurerAndie2D.png" id="13_iywqd"]
 [ext_resource type="Texture2D" uid="uid://580dho2k7xr2" path="res://Asset/Background/Particles_ProjectLittleAdventurerAndie2D.png" id="13_y32gd"]
+[ext_resource type="Texture2D" uid="uid://c6ehdraqhr88a" path="res://Asset/Background/CloseBackground/CBG02_ProjectLittleAdventurerAndie2D.png" id="14_cyc77"]
 [ext_resource type="Texture2D" uid="uid://bqsrjtnwkm1np" path="res://Asset/Background/Sunshine_ProjectLittleAdventurerAndie2D.png" id="14_v2k7s"]
+[ext_resource type="Texture2D" uid="uid://cxp5cd4gsxk75" path="res://Asset/Background/CloseBackground/CBG03_ProjectLittleAdventurerAndie2D.png" id="15_rnfou"]
+[ext_resource type="Texture2D" uid="uid://b87p1q338nl6u" path="res://Asset/Background/CloseBackground/CBG04_ProjectLittleAdventurerAndie2D.png" id="16_rrc8w"]
+[ext_resource type="Texture2D" uid="uid://qrrbx28pvy3g" path="res://Asset/Background/CloseBackground/CBG05_ProjectLittleAdventurerAndie2D.png" id="17_iksrx"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6a8oh"]
 friction = 0.0
@@ -924,6 +929,28 @@ autoplay = "default"
 frame = 3
 frame_progress = 0.0758917
 centered = false
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(-48, -120)
+texture = ExtResource("13_iywqd")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(376, -120)
+texture = ExtResource("14_cyc77")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(800, -200)
+texture = ExtResource("15_rnfou")
+
+[node name="Sprite2D4" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(1192, -128)
+texture = ExtResource("16_rrc8w")
+
+[node name="Sprite2D5" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer7"]
+position = Vector2(1552, -112)
+texture = ExtResource("17_iksrx")
 
 [node name="ParallaxBackground2" type="ParallaxBackground" parent="."]
 layer = 100
