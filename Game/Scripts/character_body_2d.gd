@@ -5,6 +5,10 @@ const JUMP_VELOCITY = -350.0
 const dEd = 90.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func _ready():
+	GameManager.player = self
+	GameManager.playerOriginalPos = position
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity
 	if not is_on_floor():
