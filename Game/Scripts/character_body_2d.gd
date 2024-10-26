@@ -2,9 +2,12 @@ extends CharacterBody2D
 class_name Player
 
 signal onPlayerJumped
+signal onPlayerLanded
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 const dEd = 90.0
+
+var isAirborne: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
@@ -14,6 +17,10 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		isAirborne = true
+	elif isAirborne:
+		isAirborne = false
+		onPlayerLanded.emit()
 
 	# Handle jump
 	if Input.is_action_just_pressed("Jump") and is_on_floor():

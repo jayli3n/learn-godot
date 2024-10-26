@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready():
 	animated_sprite_2d.play("Start")
-
+	
 func _process(delta):
 	if not animated_sprite_2d.is_playing():
 		queue_free()
