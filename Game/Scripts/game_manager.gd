@@ -9,19 +9,17 @@ func onPlayerLoaded(player: Player) -> void:
 	player.connect("onPlayerJumped", onPlayerJumped)
 	player.connect("onPlayerLanded", onPlayerLanded)
 
-func spawnInWorld(resource: Resource, pos: Vector2) -> Node2D:
-	var instance = resource.instantiate()
-	instance.global_position = pos
-	get_tree().root.add_child(instance)
-	return instance
+func spawnInRoot(node: Node2D, position: Vector2) -> void:
+	get_tree().root.add_child(node)
+	node.global_position = position
 
 func onPlayerJumped() -> void:
-	const vfx = preload("res://Game/Scenes/vfx_jump_up.tscn")
-	spawnInWorld(vfx, _player.global_position)
+	var vfxJumpUp = VFXJumpUp.newVFXJumpUp()
+	spawnInRoot(vfxJumpUp, _player.global_position)
 	
 func onPlayerLanded() -> void:
-	const vfx = preload("res://Game/Scenes/vfx_jump_land.tscn")
-	spawnInWorld(vfx, _player.global_position)
+	var vfxJumpLand = VFXJumpLand.newVFXJumpLand()
+	spawnInRoot(vfxJumpLand, _player.global_position)
 
 func onPlayerEnteredDeadZone() -> void:
 	_player.position = _playerOriginalPos

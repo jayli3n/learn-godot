@@ -5,10 +5,12 @@ signal onPlayerJumped
 signal onPlayerLanded
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
-const dEd = 90.0
+const SHOOT_DURATION = 0.249
 
 var isAirborne: bool = false
+var isShooting: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var shoot_point: Node2D = $ShootPoint
 
 func _ready():
 	GameManager.onPlayerLoaded(self)
@@ -40,6 +42,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Shoot"):
+		tryToShoot()
+		
 	updateAnimation()
 	
 func updateAnimation():
@@ -48,10 +53,57 @@ func updateAnimation():
 	
 	if is_on_floor():
 		if abs(velocity.x) >= 0.1:
-			animated_sprite_2d.play("Run")
+			if isShooting:
+				animated_sprite_2d.play("ShootRun")
+			else:
+				animated_sprite_2d.play("Run")
 		else:
-			animated_sprite_2d.play("Idle")
+			if isShooting:
+				animated_sprite_2d.play("ShootStand")
+			else:
+				animated_sprite_2d.play("Idle")
 	else:
 		animated_sprite_2d.play("Jump")
 
+func shoot() -> void:
+	var bullet = Bullet.newBullet(-1 if animated_sprite_2d.flip_h else 1)
+	GameManager.spawnInRoot(bullet, shoot_point.global_position)
+	
+func tryToShoot() -> void:
+	if isShooting:
+		return
+	
+	isShooting = true
+	shoot()
+	await get_tree().create_timer(SHOOT_DURATION).timeout
+	isShooting = false
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
