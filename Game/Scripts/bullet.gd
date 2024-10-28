@@ -18,7 +18,16 @@ func _physics_process(delta: float) -> void:
 	
 
 func _on_body_entered(body: Node2D) -> void:
+	# VFX
 	var vfx = preload("res://Game/Scenes/vfx_bullet_hit.tscn").instantiate()
 	GameManager.spawnInRoot(vfx, global_position)
 	vfx.scale.x = direction
+	
+	# Apply damage to enemy
+	if body is Enemy:
+		body.applyDamage(DAMAGE)
+	
 	queue_free()
+	
+	
+	

@@ -1,11 +1,48 @@
-[gd_scene load_steps=16 format=3 uid="uid://b3glkuopfbacb"]
+[gd_scene load_steps=26 format=3 uid="uid://b3glkuopfbacb"]
 
 [ext_resource type="Texture2D" uid="uid://c4n184nlu48sm" path="res://Asset/Animations/Enemy/Walk.png" id="1_ariuo"]
 [ext_resource type="Script" path="res://Game/Scripts/enemy.gd" id="1_efs2k"]
+[ext_resource type="Texture2D" uid="uid://m083jcilg1du" path="res://Asset/Animations/Enemy/Die.png" id="2_6nvqj"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_heixw"]
 radius = 6.0
 height = 46.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmx6o"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(0, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gjvo"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(240, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ptdxk"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(480, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk7ba"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(720, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55q6d"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(960, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p0mv"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(1200, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_didx4"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(1440, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_egac2"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(1680, 0, 240, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp5pg"]
+atlas = ExtResource("2_6nvqj")
+region = Rect2(1920, 0, 240, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_45c2p"]
 atlas = ExtResource("1_ariuo")
@@ -53,6 +90,38 @@ region = Rect2(2400, 0, 240, 112)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nonpp"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jmx6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gjvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ptdxk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk7ba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55q6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p0mv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_didx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_egac2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp5pg")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_45c2p")
@@ -111,6 +180,4 @@ target_position = Vector2(0, 10)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -56)
 sprite_frames = SubResource("SpriteFrames_nonpp")
-animation = &"Walk"
-frame = 5
-frame_progress = 0.59263
+animation = &"Die"
