@@ -7,6 +7,8 @@ const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 const SHOOT_DURATION = 0.249
 
+var health: int = 100
+var isDead: bool = false
 var isAirborne: bool = false
 var isShooting: bool = false
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -97,7 +99,14 @@ func tryToShoot() -> void:
 	await get_tree().create_timer(SHOOT_DURATION).timeout
 	isShooting = false
 	
+func applyDamage(damage: int) -> void:
+	if (isDead): return
+	health -= damage
 	
+	isDead = health <= 0
+	
+	if (isDead):
+		animated_sprite_2d.play("Die")
 	
 	
 	
