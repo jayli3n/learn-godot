@@ -1,0 +1,64 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcwjr38yvyj2g"]
+
+[ext_resource type="Script" path="res://Game/Scripts/vfx_jump_land.gd" id="1_r7mm5"]
+[ext_resource type="Texture2D" uid="uid://fximm82jxwca" path="res://Asset/VFX/VFX_PlayerBulletHit.png" id="2_eoss8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbl5j"]
+atlas = ExtResource("2_eoss8")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_55yk8"]
+atlas = ExtResource("2_eoss8")
+region = Rect2(32, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_teejq"]
+atlas = ExtResource("2_eoss8")
+region = Rect2(64, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_walb1"]
+atlas = ExtResource("2_eoss8")
+region = Rect2(96, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cfli5"]
+atlas = ExtResource("2_eoss8")
+region = Rect2(128, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yms5t"]
+atlas = ExtResource("2_eoss8")
+region = Rect2(160, 0, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_leg8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbl5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_55yk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_teejq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_walb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cfli5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yms5t")
+}],
+"loop": false,
+"name": &"Start",
+"speed": 20.0
+}]
+
+[node name="VFX_BulletHit" type="Node2D"]
+script = ExtResource("1_r7mm5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-16, 0)
+sprite_frames = SubResource("SpriteFrames_leg8n")
+animation = &"Start"
+frame = 5
+frame_progress = 1.0

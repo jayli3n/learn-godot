@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://diq2yfh3fgtli"]
+
+[ext_resource type="Script" path="res://Game/Scripts/bullet.gd" id="1_kbntx"]
+[ext_resource type="Texture2D" uid="uid://hw0jpj1dycmj" path="res://Asset/Animations/Other/Bullet.png" id="1_s6rcc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jqx6u"]
+size = Vector2(22, 6)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 0
+collision_mask = 5
+script = ExtResource("1_kbntx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jqx6u")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+texture = ExtResource("1_s6rcc")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
