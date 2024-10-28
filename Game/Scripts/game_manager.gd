@@ -13,10 +13,12 @@ func spawnInRoot(node: Node2D, position: Vector2) -> void:
 	get_tree().root.add_child(node)
 	node.global_position = position
 
+# This can be done without signals, but good for practice
 func onPlayerJumped() -> void:
 	var vfxJumpUp = VFXJumpUp.newVFXJumpUp()
 	spawnInRoot(vfxJumpUp, _player.global_position)
 	
+# This can be done without signals, but good for practice
 func onPlayerLanded() -> void:
 	var vfxJumpLand = VFXJumpLand.newVFXJumpLand()
 	spawnInRoot(vfxJumpLand, _player.global_position)
